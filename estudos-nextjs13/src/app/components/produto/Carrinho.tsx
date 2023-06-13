@@ -8,12 +8,13 @@ interface CarrinhoProps {
 }
 
 export default function Carrinho(props: CarrinhoProps) {
+  //pega todos os elementos da lista e realiza uma soma
   const total = props.itens.reduce((soma, item) => {
-    return soma + item.quantidade * item.produto.id;
+    return soma + item.quantidade * item.produto.preco;
   }, 0);
   return (
     <div className="flex flex-col   border border-white rounded-md overflow-hidden w-4/5">
-      <div className="flex justify-between items-center bg-zinc-800 text-3xl p-2">
+      <div className="flex justify-between  items-center bg-zinc-100 text-3xl p-2">
         <span>Carrinho</span>
         <span>{Moeda.formatar(total)}</span>
       </div>

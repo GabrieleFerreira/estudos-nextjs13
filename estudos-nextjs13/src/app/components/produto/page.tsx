@@ -18,11 +18,11 @@ export default function PaginaProdutosItens() {
       produto,
     };
     const novoItem = { ...itemAtual, quantidade: itemAtual.quantidade + 1 };
-    const outrosItens = itens.filter((item) => item.produto.id);
+    const outrosItens = itens.filter((item) => item.produto.id !== produto.id);
     setItens([...outrosItens, novoItem]);
   }
   return (
-    <div className="flex justify-center items-center gap-10 ">
+    <div className="flex flex-col justify-center items-center gap-10 ">
       <Carrinho itens={itens} />
       <ListaProdutos produtos={produtos} comprar={adicionarProduto} />
     </div>
